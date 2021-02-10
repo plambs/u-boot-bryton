@@ -5,11 +5,15 @@
 
 ifeq ($(CONFIG_ARCH_RV64I),y)
 	ARCH_BASE = rv64im
-	ABI = lp64
+	ABI = lp64d
+	ARCH_D = d
+	ARCH_F = f
 endif
 ifeq ($(CONFIG_ARCH_RV32I),y)
 	ARCH_BASE = rv32im
-	ABI = ilp32
+	ABI = ilp32d
+	ARCH_D = d
+	ARCH_F = f
 endif
 ifeq ($(CONFIG_RISCV_ISA_A),y)
 	ARCH_A = a
@@ -24,7 +28,7 @@ ifeq ($(CONFIG_CMODEL_MEDANY),y)
 	CMODEL = medany
 endif
 
-ARCH_FLAGS = -march=$(ARCH_BASE)$(ARCH_A)$(ARCH_C) -mabi=$(ABI) \
+ARCH_FLAGS = -march=$(ARCH_BASE)$(ARCH_A)$(ARCH_F)$(ARCH_D)$(ARCH_C) -mabi=$(ABI) \
 	     -mcmodel=$(CMODEL)
 
 PLATFORM_CPPFLAGS	+= $(ARCH_FLAGS)
