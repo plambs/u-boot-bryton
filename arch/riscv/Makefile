@@ -28,7 +28,12 @@ ifeq ($(CONFIG_CMODEL_MEDANY),y)
 	CMODEL = medany
 endif
 
-ARCH_FLAGS = -march=$(ARCH_BASE)$(ARCH_A)$(ARCH_F)$(ARCH_D)$(ARCH_C) -mabi=$(ABI) \
+# Newer binutils versions default to ISA spec version 20191213 which moves some
+# instructions from the I extension to the Zicsr and Zifencei extensions.
+toolchain-need-zicsr-zifencei := $(call cc-option-yn, -march=$(ARCH_BASE)$(ARCH_A)$(ARCH_F)$(ARCH_D)$(ARCH_C)_zicsr_zifencei)
+zicsr_zifencei-$(toolchain-need-zicsr-zifencei) := _zicsr_zifencei
+
+ARCH_FLAGS = -march=$(ARCH_BASE)$(ARCH_A)$(ARCH_F)$(ARCH_D)$(ARCH_C)$(zicsr_zifencei-y) -mabi=$(ABI) \
 	     -mcmodel=$(CMODEL)
 
 PLATFORM_CPPFLAGS	+= $(ARCH_FLAGS)
