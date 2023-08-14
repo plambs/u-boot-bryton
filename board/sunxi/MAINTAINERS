@@ -101,6 +101,11 @@ M:	Stefan Mavrodiev <stefan.mavrodiev@gmail.com>
 S:	Maintained
 F:	configs/A33-OLinuXino_defconfig
 
+A33-BRYTON860 BOARD
+M:	Pierre-Antoine LAMBS <pierreantoine.lambs@gmail.com>
+S:	Maintained
+F:	configs/A33-bryton860_defconfig
+
 A64-OLINUXINO BOARD
 M:	Jagan Teki <jagan@amarulasolutions.com>
 S:	Maintained

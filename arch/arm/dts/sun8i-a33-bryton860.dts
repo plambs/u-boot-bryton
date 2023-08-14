@@ -48,7 +48,7 @@
 #include <dt-bindings/input/input.h>
 
 / {
-	model = "Olimex A33-Bryton860";
+	model = "A33-BrytonRider860";
 	compatible = "olimex,a33-bryton860","allwinner,sun8i-a33";
 
 	aliases {
