@@ -94,7 +94,7 @@
 
 /* mmc config */
 #ifdef CONFIG_MMC
-#define CONFIG_MMC_SUNXI_SLOT		0
+#define CONFIG_MMC_SUNXI_SLOT		2
 #endif
 
 #if defined(CONFIG_ENV_IS_IN_MMC)
